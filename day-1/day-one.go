@@ -1,30 +1,18 @@
 package main
 
 import (
+	"advent-of-code-2024/helpers"
 	"bufio"
 	"fmt"
 	"math"
 	"os"
 	"slices"
-	"strconv"
 	"strings"
 )
 
 type InputData struct {
 	first  []string
 	second []string
-}
-
-func HandleError(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
-func StringToInt(str string) int {
-	num, err := strconv.Atoi(str)
-	HandleError(err)
-	return num
 }
 
 func main() {
@@ -34,7 +22,7 @@ func main() {
 	fmt.Println(inFile)
 
 	f, err := os.Open(inFile)
-	HandleError(err)
+	helpers.HandleError(err)
 
 	defer f.Close()
 
@@ -57,8 +45,8 @@ func main() {
 	diff := 0
 	similarity := 0
 	for i := range len(inputData.first) {
-		num1 := StringToInt(inputData.first[i])
-		num2 := StringToInt(inputData.second[i])
+		num1 := helpers.StringToInt(inputData.first[i])
+		num2 := helpers.StringToInt(inputData.second[i])
 
 		diff += int(math.Abs(float64(num1 - num2)))
 
