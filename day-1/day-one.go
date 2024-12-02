@@ -19,8 +19,6 @@ func main() {
 
 	inFile := os.Args[1]
 
-	fmt.Println(inFile)
-
 	f, err := os.Open(inFile)
 	helpers.HandleError(err)
 
